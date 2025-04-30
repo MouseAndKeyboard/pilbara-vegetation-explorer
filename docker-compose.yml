@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  geoserver:
+    image: geoserver:latest
+    container_name: my-geoserver
+    ports:
+      - "8080:8080"
+    environment:
+      # OPTIONAL: Set admin user/password if you like
+      GEOSERVER_ADMIN_USER: admin
+      GEOSERVER_ADMIN_PASSWORD: geoserver
+    # If you have data_dir you want to persist or customize:
+    # volumes:
+    #   - ./geoserver_data:/var/local/geoserver
+
+  frontend:
+    container_name: my-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    # If your Next.js needs environment variables:
+    environment:
+      NEXT_PUBLIC_SUPABASE_URL=https://ruwqcgqgheoxbwlbnkmr.supabase.co
+      NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ1d3FjZ3FnaGVveGJ3bGJua21yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYwMTUzNDIsImV4cCI6MjA2MTU5MTM0Mn0.7f4GEnVq-0QqpVGnIDek40F0sY40GwOGKEqG8fCt3mY

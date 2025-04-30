@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import L from "leaflet"
 import "leaflet/dist/leaflet.css"
-import { fetchTimeSeriesForMonth } from "@/frontend/helpers/fetchData"
+import { fetchTimeSeriesForMonth } from "@/helpers/fetchData"
 
 // Fix the default icon issue in Leaflet
 delete (L.Icon.Default.prototype as any)._getIconUrl

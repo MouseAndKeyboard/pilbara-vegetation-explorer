@@ -1,5 +1,5 @@
 // helpers/fetchData.ts
-import { supabase } from "@/frontend/lib/supabaseClient"
+import { supabase } from "@/lib/supabaseClient"
 
 export async function fetchTimeSeriesForMonth(targetMonth: number, targetYear: number) {
   const monthString = (targetMonth + 1).toString().padStart(2, "0")
